@@ -49,7 +49,7 @@ export default class HtmlRenderer {
     await MarkdownRenderer.render(this.app, markdownContent, el, '.', this.component);
 
     // Remove target="_blank" from lines
-    el.querySlectrorAll('a').forEach(link => {
+    el.querySelectorAll('a').forEach(link => {
       link.removeAttribute('target');
     });
 

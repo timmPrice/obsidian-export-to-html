@@ -48,7 +48,7 @@ export default class ExportToHtmlPlugin extends Plugin {
     });
 
     this.addCommand({
-      id: 'download-as-html',
+      id: 'download-for-blog',
       name: 'Download as an HTML file',
       editorCallback: async (editor: Editor, view: MarkdownView) => {
         const htmlRenderer = new HtmlRenderer(this.app, this);
@@ -74,7 +74,7 @@ export default class ExportToHtmlPlugin extends Plugin {
           { type: 'text/html' }
         );
 
-        downloadBlob(blob, `${view.file?.basename ?? 'markdown'}.html`);
+        downloadBlob(blob, `${view.file?.basename ?? 'markdown'}`);
       }
     });
   }
