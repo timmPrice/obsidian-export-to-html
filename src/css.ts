@@ -22,6 +22,7 @@ export default `.markdown-body {
     --fgColor-danger: #f85149;
     --fgColor-done: #ab7df8;
     --bgColor-default: #0d1117;
+    --bgColor-default: #0F0F0F;
     --bgColor-muted: #161b22;
     --bgColor-neutral-muted: #6e768166;
     --bgColor-attention-muted: #bb800926;

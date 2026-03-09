@@ -20,7 +20,7 @@ const customCss = `
 }`;
 
 export default class ExportToHtmlPlugin extends Plugin {
-  async onload () {
+  async onload() {
     this.addCommand({
       id: 'copy-to-clipboard-as-html',
       name: 'Copy to clipboard as HTML',
@@ -58,7 +58,7 @@ export default class ExportToHtmlPlugin extends Plugin {
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${view.file?.name} | Exported</title>
+    <title>zenroutes</title>
     <style>
       ${css}
       ${customCss}

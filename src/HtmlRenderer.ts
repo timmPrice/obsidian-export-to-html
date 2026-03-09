@@ -6,7 +6,7 @@ export default class HtmlRenderer {
   private app: App;
   private component: Component;
 
-  constructor (app: App, component: Component) {
+  constructor(app: App, component: Component) {
     this.app = app;
     this.component = component;
   }
@@ -18,7 +18,7 @@ export default class HtmlRenderer {
    * @param imagePath The image path as returned by the MarkdownRenderer.
    * @returns The base 64 representation of the image.
    */
-  private async convertImageToBase64String (imagePath: string): Promise<string> {
+  private async convertImageToBase64String(imagePath: string): Promise<string> {
     const vault = this.app.vault;
     const images = vault.getFiles().filter(file => IMAGE_EXTENSIONS.includes(file.extension));
 
@@ -44,9 +44,14 @@ export default class HtmlRenderer {
     return `data:image/png;base64,${arrayBufferToBase64(buffer)}`;
   }
 
-  async render (markdownContent: string): Promise<string> {
+  async render(markdownContent: string): Promise<string> {
     const el = document.body.createDiv();
     await MarkdownRenderer.render(this.app, markdownContent, el, '.', this.component);
+
+    // Remove target="_blank" from lines
+    el.querySlectrorAll('a').forEach(link => {
+      link.removeAttribute('target');
+    });
 
     // Remove copy-code buttons.
     el.querySelectorAll('.copy-code-button').forEach(e => {
